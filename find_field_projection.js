@@ -7,16 +7,18 @@ MongoClient.connect('mongodb://localhosst:27017/course', function(err, db){
 
 	var query = {'grade': 100};
 
-	var cursor = db.collection('grades').find(query);
+	var projection = {'student': 1, '_id': 0};
 
-	cursor.each.(function(err, doc){
-		if (err) throw err;
+	var cursor = db.collection('grades').find(query).toArray(function(err, docs){
+		if(err) throw err;
 
-		if(doc == null){
-			return db.close()
-		}
+		docs.forEach(function(doc){
+			console.dir(doc);
+			console.dir(doc.student + "got a good grade");
+		});
 
-		console.log(doc.student+"got a good grade!");
+		db.close();
+
 	});
 
 });
