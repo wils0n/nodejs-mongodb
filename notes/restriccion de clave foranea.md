@@ -1,0 +1,4 @@
+###Restricciones de clave foránea en el mundo relacional
+Por ejemplo 1 post tiene muchos comentarios, y el id del post debe estar en la tabla de comentarios, a eso le llamamos una restricción de clave foránea.
+
+En Mongodb, la forma como mantener tus datos consistente e intactos en tus colecciones, es embebiendo documentos. Para nuestro ejemplo, comentarios sería un array embebido en post, al estar unido, ya tendremos nuestra colección consistente, ya que los comentarios que pertenecen al post aparecen directamente la coleccion del post. Por lo tanto solucionamos la restricción de la clave foránea
